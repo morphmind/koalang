@@ -1,0 +1,1 @@
+// This file is intentionally empty as we no longer use page-based auth

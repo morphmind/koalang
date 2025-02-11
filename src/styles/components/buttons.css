@@ -1,0 +1,92 @@
+/* Primary Button */
+.btn-primary {
+  display: inline-block;
+  padding: var(--spacing-4) var(--spacing-8);
+  background: var(--bs-primary);
+  color: white;
+  border-radius: var(--radius-xl);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--bs-800);
+  transform: translateY(-2px);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  display: inline-block;
+  padding: var(--spacing-4) var(--spacing-8);
+  background: white;
+  color: var(--bs-primary);
+  border: 2px solid var(--bs-primary);
+  border-radius: var(--radius-xl);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--bs-50);
+  transform: translateY(-2px);
+}
+
+/* White Button */
+.btn-white {
+  display: inline-block;
+  padding: var(--spacing-4) var(--spacing-8);
+  background: white;
+  color: var(--bs-primary);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  background: var(--bs-50);
+}
+
+/* Outline White Button */
+.btn-outline-white {
+  display: inline-block;
+  padding: var(--spacing-4) var(--spacing-8);
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Action Button */
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-5);
+  background: var(--bs-50);
+  border: none;
+  border-radius: var(--radius-lg);
+  color: var(--bs-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  background: var(--bs-100);
+  transform: translateY(-1px);
+}
+
+.action-btn.active {
+  background: var(--bs-primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(8, 28, 158, 0.15);
+}

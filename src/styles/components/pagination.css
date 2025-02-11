@@ -1,0 +1,68 @@
+/* Pagination */
+.oxford-pagination {
+  display: flex;
+  gap: var(--spacing-3);
+  justify-content: center;
+  padding: var(--spacing-8) 0;
+  background: #fff;
+  margin: var(--spacing-8) 0;
+}
+
+.page-nav {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--bs-fourly);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--bs-navygri);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-nav:hover {
+  border-color: var(--bs-primary);
+  color: var(--bs-primary);
+  background: var(--bs-50);
+}
+
+.page-numbers {
+  display: flex;
+  gap: var(--spacing-2);
+  align-items: center;
+}
+
+.page-num {
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--bs-fourly);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--bs-navygri);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-num:hover {
+  border-color: var(--bs-primary);
+  color: var(--bs-primary);
+  background: var(--bs-50);
+}
+
+.page-num.active {
+  background: var(--bs-primary);
+  color: #fff;
+  border-color: var(--bs-primary);
+}
+
+.page-dots {
+  color: var(--bs-navygri);
+  padding: 0 var(--spacing-1);
+}

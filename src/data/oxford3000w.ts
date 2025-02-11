@@ -1,0 +1,1159 @@
+import { Word } from './oxford3000.types';
+
+export const oxford3000w: Word[] = [
+  {
+    word: 'wage',
+    type: 'n.',
+    level: 'B1',
+    pronunciation: '/weɪdʒ/',
+    meaning: 'ücret, maaş',
+    examples: [
+      { en: 'The workers demanded a higher wage to cope with the rising cost of living.' },
+      { en: 'She calculates her wage on an hourly basis to determine her monthly earnings.' }
+    ]
+  },
+  {
+    word: 'waist',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/weɪst/',
+    meaning: 'bel, bel çevresi',
+    examples: [
+      { en: 'Her dress was tailored perfectly to fit her small waist.' },
+      { en: 'He measured his waist before buying a new pair of trousers.' }
+    ]
+  },
+  {
+    word: 'wait',
+    type: 'v.',
+    level: 'A1',
+    pronunciation: '/weɪt/',
+    meaning: 'beklemek',
+    examples: [
+      { en: 'Please wait here until your name is called.' },
+      { en: 'They had to wait for over an hour before the bus finally arrived.' }
+    ]
+  },
+  {
+    word: 'waiter, waitress',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/ˈweɪtər, ˈweɪtrɛs/',
+    meaning: 'garson, kadın garson',
+    examples: [
+      { en: 'The waiter took our order promptly and with a friendly smile.' },
+      { en: 'A polite waitress recommended the house special to the guests.' }
+    ]
+  },
+  {
+    word: 'wake (up)',
+    type: 'v.',
+    level: 'A1',
+    pronunciation: '/weɪk/',
+    meaning: 'uyanmak, uyandırmak',
+    examples: [
+      { en: 'I usually wake up early in the morning to go for a run.' },
+      { en: 'She tried to wake up her brother by gently shaking his shoulder.' }
+    ]
+  },
+  {
+    word: 'walk',
+    type: 'v., n. (walking n.)',
+    level: 'A1',
+    pronunciation: '/wɔːk/',
+    meaning: 'yürümek, yürüyüş; yürüyüş',
+    examples: [
+      { en: 'They decided to walk to the park instead of taking the bus.' },
+      { en: 'A long walk on a sunny day can be very refreshing.' }
+    ]
+  },
+  {
+    word: 'wall',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/wɔːl/',
+    meaning: 'duvar',
+    examples: [
+      { en: 'The ancient wall stood as a testament to the city\'s history.' },
+      { en: 'She decorated the wall with beautiful paintings and photographs.' }
+    ]
+  },
+  {
+    word: 'wallet',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/ˈwɒlɪt/',
+    meaning: 'cüzdan',
+    examples: [
+      { en: 'He realized his wallet was missing after leaving the restaurant.' },
+      { en: 'A slim wallet is more convenient to carry in a pocket.' }
+    ]
+  },
+  {
+    word: 'wander',
+    type: 'v., n.',
+    level: 'B1',
+    pronunciation: '/ˈwɒndər/',
+    meaning: 'dolaşmak, savrulmak; dolanış, gezinti',
+    examples: [
+      { en: 'They decided to wander through the old town to explore its hidden alleys.' },
+      { en: 'A wander in the countryside can be a great way to clear your mind.' }
+    ]
+  },
+  {
+    word: 'want',
+    type: 'v.',
+    level: 'A1',
+    pronunciation: '/wɒnt/',
+    meaning: 'istemek, arzulamak',
+    examples: [
+      { en: 'I really want to travel to Japan next summer.' },
+      { en: 'She wants a new phone for her birthday.' }
+    ]
+  },
+  {
+    word: 'war',
+    type: 'n.',
+    level: 'B1',
+    pronunciation: '/wɔːr/',
+    meaning: 'savaş, çatışma',
+    examples: [
+      { en: 'The documentary provided a deep insight into the horrors of war.' },
+      { en: 'Many countries have experienced the devastating effects of war.' }
+    ]
+  },
+  {
+    word: 'warm',
+    type: 'adj., v.',
+    level: 'A2',
+    pronunciation: '/wɔːrm/',
+    meaning: 'ılık, sıcak; ısıtmak, ısınmak',
+    examples: [
+      { en: 'The blanket kept her warm on the cold winter night.' },
+      { en: 'He tried to warm his hands by rubbing them together.' }
+    ]
+  },
+  {
+    word: 'warmth',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/wɔːrmθ/',
+    meaning: 'ısı, sıcaklık; samimiyet',
+    examples: [
+      { en: 'The warmth of the sun made the chilly morning feel comfortable.' },
+      { en: 'Her words conveyed a genuine warmth that made everyone feel welcome.' }
+    ]
+  },
+  {
+    word: 'warn',
+    type: 'v. (warning n.)',
+    level: 'B1',
+    pronunciation: '/wɔːrn/',
+    meaning: 'uyarmak, dikkat etmek',
+    examples: [
+      { en: 'The sign warned drivers of the sharp turn ahead.' },
+      { en: 'Parents often warn their children about the dangers of talking to strangers.' }
+    ]
+  },
+  {
+    word: 'wash',
+    type: 'v.',
+    level: 'A1',
+    pronunciation: '/wɒʃ/',
+    meaning: 'yıkamak, temizlemek',
+    examples: [
+      { en: 'Remember to wash your hands before you eat.' },
+      { en: 'She washed the car until it sparkled in the sun.' }
+    ]
+  },
+  {
+    word: 'waste',
+    type: 'v., n., adj.',
+    level: 'B1',
+    pronunciation: '/weɪst/',
+    meaning: 'israf etmek; atık, çöp; değersiz, boşa',
+    examples: [
+      { en: 'It is important not to waste food when there are many people in need.' },
+      { en: 'They discussed the waste generated by the factory and how to reduce it.' }
+    ]
+  },
+  {
+    word: 'watch',
+    type: 'v., n.',
+    level: 'A1',
+    pronunciation: '/wɒtʃ/',
+    meaning: 'izlemek, seyretmek; saat, kol saati',
+    examples: [
+      { en: 'He likes to watch the news every evening.' },
+      { en: 'Her watch is a family heirloom passed down through generations.' }
+    ]
+  },
+  {
+    word: 'water',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/ˈwɔːtər/',
+    meaning: 'su',
+    examples: [
+      { en: 'Drinking enough water is essential for good health.' },
+      { en: 'They used water from the nearby stream to water the plants.' }
+    ]
+  },
+  {
+    word: 'wave',
+    type: 'n., v.',
+    level: 'A2',
+    pronunciation: '/weɪv/',
+    meaning: 'dalga; el sallamak, dalgalanmak',
+    examples: [
+      { en: 'A huge wave crashed onto the shore during the storm.' },
+      { en: 'He gave a friendly wave as he passed by on his bike.' }
+    ]
+  },
+  {
+    word: 'way',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/weɪ/',
+    meaning: 'yol, yöntem; tarz',
+    examples: [
+      { en: 'There is a better way to solve this problem if we work together.' },
+      { en: 'She showed me the way to the nearest bus stop.' }
+    ]
+  },
+  {
+    word: 'we',
+    type: 'pron.',
+    level: 'A1',
+    pronunciation: '/wiː/',
+    meaning: 'biz',
+    examples: [
+      { en: 'We are planning to have a family gathering this weekend.' },
+      { en: 'We believe that cooperation is key to success.' }
+    ]
+  },
+  {
+    word: 'weak',
+    type: 'adj.',
+    level: 'A2',
+    pronunciation: '/wiːk/',
+    meaning: 'zayıf, güçsüz',
+    examples: [
+      { en: 'After the illness, he felt too weak to get out of bed.' },
+      { en: 'Her argument was weak and did not convince anyone.' }
+    ]
+  },
+  {
+    word: 'weakness',
+    type: 'n.',
+    level: 'B1',
+    pronunciation: '/ˈwiːknəs/',
+    meaning: 'zayıflık, eksiklik',
+    examples: [
+      { en: 'Everyone has a weakness, and recognizing it is the first step toward improvement.' },
+      { en: 'He admitted his weakness for sweet foods despite trying to eat healthily.' }
+    ]
+  },
+  {
+    word: 'wealth',
+    type: 'n.',
+    level: 'B1',
+    pronunciation: '/wɛlθ/',
+    meaning: 'servet, zenginlik',
+    examples: [
+      { en: 'The country is known for its abundant natural wealth and resources.' },
+      { en: 'True wealth is not measured only by money but by health and happiness.' }
+    ]
+  },
+  {
+    word: 'weapon',
+    type: 'n.',
+    level: 'B1',
+    pronunciation: '/ˈwɛpən/',
+    meaning: 'silah, kuşatma aracı',
+    examples: [
+      { en: 'The soldier carried a weapon for self-defense during the mission.' },
+      { en: 'Discussions about reducing the spread of weapons are common in political debates.' }
+    ]
+  },
+  {
+    word: 'wear',
+    type: 'v.',
+    level: 'A1',
+    pronunciation: '/wɛər/',
+    meaning: 'giymek, takmak',
+    examples: [
+      { en: 'I like to wear comfortable clothes when I work from home.' },
+      { en: 'She always wears a stylish outfit to make a good impression.' }
+    ]
+  },
+  {
+    word: 'weather',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/ˈwɛðər/',
+    meaning: 'hava, iklim',
+    examples: [
+      { en: 'The weather today is sunny with a few clouds in the sky.' },
+      { en: 'They postponed the picnic because the weather forecast predicted rain.' }
+    ]
+  },
+  {
+    word: 'web',
+    type: 'n. (the Web n.)',
+    level: 'A2',
+    pronunciation: '/wɛb/',
+    meaning: 'ağ, internet ağı; Web (dünya çapında internet)',
+    examples: [
+      { en: 'She spent hours browsing the web for interesting articles.' },
+      { en: 'The Web has revolutionized the way we access information.' }
+    ]
+  },
+  {
+    word: 'website',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/ˈwɛbsaɪt/',
+    meaning: 'web sitesi, internet sayfası',
+    examples: [
+      { en: 'The company launched a new website to showcase its products.' },
+      { en: 'He visited the website to find more information about the event.' }
+    ]
+  },
+  {
+    word: 'wedding',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/ˈwɛdɪŋ/',
+    meaning: 'düğün, nikah',
+    examples: [
+      { en: 'Their wedding was a beautiful celebration full of love and joy.' },
+      { en: 'She spent months planning every detail of her wedding.' }
+    ]
+  },
+  {
+    word: 'Wednesday',
+    type: 'n. (abbr. Wed., Weds.)',
+    level: 'A1',
+    pronunciation: '/ˈwɛnzdeɪ/',
+    meaning: 'Çarşamba',
+    examples: [
+      { en: 'We have a team meeting every Wednesday afternoon.' },
+      { en: 'Wednesday is often considered the middle of the work week.' }
+    ]
+  },
+  {
+    word: 'week',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/wiːk/',
+    meaning: 'hafta, bir hafta süren zaman dilimi',
+    examples: [
+      { en: 'There are seven days in a week.' },
+      { en: 'She plans her schedule for the entire week on Sunday evenings.' }
+    ]
+  },
+  {
+    word: 'weekend',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/ˈwiːkɛnd/',
+    meaning: 'hafta sonu',
+    examples: [
+      { en: 'They went on a short trip during the weekend to relax.' },
+      { en: 'Weekends are the best time to catch up on rest and hobbies.' }
+    ]
+  },
+  {
+    word: 'weekly',
+    type: 'adj.',
+    level: 'A2',
+    pronunciation: '/ˈwiːkli/',
+    meaning: 'haftalık',
+    examples: [
+      { en: 'The magazine is published on a weekly basis.' },
+      { en: 'He attends a weekly class to improve his language skills.' }
+    ]
+  },
+  {
+    word: 'weigh',
+    type: 'v.',
+    level: 'A2',
+    pronunciation: '/weɪ/',
+    meaning: 'ölçmek, tartmak',
+    examples: [
+      { en: 'She went to the clinic to weigh herself as part of a health check-up.' },
+      { en: 'It is important to weigh all the options before making a decision.' }
+    ]
+  },
+  {
+    word: 'weight',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/weɪt/',
+    meaning: 'ağırlık, tartı',
+    examples: [
+      { en: 'He is trying to lose weight by following a balanced diet and exercising regularly.' },
+      { en: 'The weight of the package was carefully measured before shipping.' }
+    ]
+  },
+  {
+    word: 'weird',
+    type: 'adj.',
+    level: 'B1',
+    pronunciation: '/wɪrd/',
+    meaning: 'tuhaf, garip',
+    examples: [
+      { en: 'It was a weird feeling to be alone in the abandoned house.' },
+      { en: 'She has a weird sense of humor that not everyone understands.' }
+    ]
+  },
+  {
+    word: 'welcome',
+    type: 'v., adj., n., exclamation',
+    level: 'A1',
+    pronunciation: '/ˈwɛlkəm/',
+    meaning: 'hoş geldiniz, kabul etmek, memnuniyetle karşılamak',
+    examples: [
+      { en: 'They welcomed us warmly when we arrived at the hotel.' },
+      { en: 'Welcome to our home! Please come in and make yourself comfortable.' }
+    ]
+  },
+  {
+    word: 'well',
+    type: 'adv., adj., exclamation',
+    level: 'A1',
+    pronunciation: '/wɛl/',
+    meaning: 'iyi, sağlıklı; güzelce, düzgünce; (exclamation: "eh, işte")',
+    examples: [
+      { en: 'She sings very well, and her voice is appreciated by everyone.' },
+      { en: 'Well, that was an unexpected turn of events during the meeting.' }
+    ]
+  },
+  {
+    word: 'west',
+    type: 'n., adj., adv.',
+    level: 'A2',
+    pronunciation: '/wɛst/',
+    meaning: 'batı, batıya ait; batı yönünde',
+    examples: [
+      { en: 'They traveled to the west coast to enjoy the ocean views and sunsets.' },
+      { en: 'The west side of the city is known for its vibrant culture and art scene.' }
+    ]
+  },
+  {
+    word: 'western',
+    type: 'adj.',
+    level: 'A2',
+    pronunciation: '/ˈwɛstərn/',
+    meaning: 'batıya ait, batı kültürüyle ilgili',
+    examples: [
+      { en: 'Western movies often feature rugged landscapes and heroic characters.' },
+      { en: 'She enjoys the western style of architecture and design.' }
+    ]
+  },
+  {
+    word: 'wet',
+    type: 'adj.',
+    level: 'A1',
+    pronunciation: '/wɛt/',
+    meaning: 'ıslak, nemli',
+    examples: [
+      { en: 'The ground was wet after the heavy rain last night.' },
+      { en: 'He got wet while walking in the sudden downpour.' }
+    ]
+  },
+  {
+    word: 'what',
+    type: 'pron., det.',
+    level: 'A1',
+    pronunciation: '/wɒt/',
+    meaning: 'ne, ne; hangi',
+    examples: [
+      { en: 'What are you planning to do this weekend?' },
+      { en: 'She couldn\'t understand what he meant by his cryptic message.' }
+    ]
+  },
+  {
+    word: 'whatever',
+    type: 'det., pron.',
+    level: 'A2',
+    pronunciation: '/wɒtˈɛvər/',
+    meaning: 'her neyse, ne olursa olsun',
+    examples: [
+      { en: 'You can choose whatever option suits you best.' },
+      { en: 'He said whatever you decide is fine with him.' }
+    ]
+  },
+  {
+    word: 'wheel',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/wiːl/',
+    meaning: 'tekerlek, çark',
+    examples: [
+      { en: 'The car\'s wheel was damaged in the accident and needed immediate repair.' },
+      { en: 'A spinning wheel has been used for centuries to spin yarn from fiber.' }
+    ]
+  },
+  {
+    word: 'when',
+    type: 'adv., pron., conj.',
+    level: 'A1',
+    pronunciation: '/wɛn/',
+    meaning: 'ne zaman, -dığı zaman',
+    examples: [
+      { en: 'When will you be arriving at the station?' },
+      { en: 'Call me when you get home safely.' }
+    ]
+  },
+  {
+    word: 'whenever',
+    type: 'conj.',
+    level: 'A2',
+    pronunciation: '/wɛnˈɛvər/',
+    meaning: 'ne zaman olursa olsun',
+    examples: [
+      { en: 'You can call me whenever you need help.' },
+      { en: 'Whenever it rains, the garden looks even more beautiful.' }
+    ]
+  },
+  {
+    word: 'where',
+    type: 'adv., conj.',
+    level: 'A1',
+    pronunciation: '/wɛər/',
+    meaning: 'nerede, hangi yer',
+    examples: [
+      { en: 'Do you know where the nearest bus stop is located?' },
+      { en: 'She asked him where he had hidden the secret document.' }
+    ]
+  },
+  {
+    word: 'whereas',
+    type: 'conj.',
+    level: 'B2',
+    pronunciation: '/wɛərˈɛz/',
+    meaning: 'oysa ki, halbuki',
+    examples: [
+      { en: 'He enjoys outdoor activities, whereas his sister prefers reading at home.' },
+      { en: 'The new policy is strict, whereas the old one was much more lenient.' }
+    ]
+  },
+  {
+    word: 'wherever',
+    type: 'conj.',
+    level: 'A2',
+    pronunciation: '/wɛərˈɛvər/',
+    meaning: 'nerede olursa olsun',
+    examples: [
+      { en: 'Take your umbrella wherever you go in case it rains.' },
+      { en: 'She carries a small notebook wherever she travels to jot down ideas.' }
+    ]
+  },
+  {
+    word: 'whether',
+    type: 'conj.',
+    level: 'A2',
+    pronunciation: '/ˈwɛðər/',
+    meaning: 'olup olmadığını, -sa/-se',
+    examples: [
+      { en: 'I cannot decide whether to go to the party or stay home.' },
+      { en: 'He was unsure whether it would rain later in the day.' }
+    ]
+  },
+  {
+    word: 'which',
+    type: 'pron., det.',
+    level: 'A1',
+    pronunciation: '/wɪtʃ/',
+    meaning: 'hangi, ki',
+    examples: [
+      { en: 'Which book would you like to borrow from the library?' },
+      { en: 'She couldn\'t decide which dress to wear for the evening event.' }
+    ]
+  },
+  {
+    word: 'while',
+    type: 'conj., n.',
+    level: 'A2',
+    pronunciation: '/waɪl/',
+    meaning: 'iken, süre; bir süre',
+    examples: [
+      { en: 'She read a book while waiting for the bus.' },
+      { en: 'During the long while of the flight, he managed to finish his work.' }
+    ]
+  },
+  {
+    word: 'whisper',
+    type: 'v., n.',
+    level: 'A2',
+    pronunciation: '/ˈwɪspər/',
+    meaning: 'fısıldamak, usulca konuşmak; fısıltı',
+    examples: [
+      { en: 'He whispered the secret so that no one else could hear it.' },
+      { en: 'A soft whisper passed through the quiet room as they exchanged secrets.' }
+    ]
+  },
+  {
+    word: 'whistle',
+    type: 'n., v.',
+    level: 'A2',
+    pronunciation: '/ˈwɪsl/',
+    meaning: 'ıslık, ıslık çalmak; ıslık sesi',
+    examples: [
+      { en: 'The referee blew his whistle to stop the game.' },
+      { en: 'She likes to whistle a cheerful tune while working in the garden.' }
+    ]
+  },
+  {
+    word: 'white',
+    type: 'adj., n.',
+    level: 'A1',
+    pronunciation: '/waɪt/',
+    meaning: 'beyaz; beyaz renk',
+    examples: [
+      { en: 'He wore a white shirt and black trousers for the formal event.' },
+      { en: 'The walls of the room were painted white to create a bright atmosphere.' }
+    ]
+  },
+  {
+    word: 'who',
+    type: 'pron.',
+    level: 'A1',
+    pronunciation: '/huː/',
+    meaning: 'kim, hangi kişi',
+    examples: [
+      { en: 'Who is coming to the party tonight?' },
+      { en: 'I wonder who left this note on my desk.' }
+    ]
+  },
+  {
+    word: 'whoever',
+    type: 'pron.',
+    level: 'B1',
+    pronunciation: '/huːˈɛvər/',
+    meaning: 'her kim olursa olsun',
+    examples: [
+      { en: 'Whoever wins the contest will receive a prize.' },
+      { en: 'She is willing to help whoever needs it most.' }
+    ]
+  },
+  {
+    word: 'whole',
+    type: 'adj., n.',
+    level: 'A2',
+    pronunciation: '/hoʊl/',
+    meaning: 'tam, bütün; bütün, bütün parça',
+    examples: [
+      { en: 'He ate the whole cake by himself, much to everyone\'s surprise.' },
+      { en: 'The whole family gathered for a reunion last summer.' }
+    ]
+  },
+  {
+    word: 'whom',
+    type: 'pron.',
+    level: 'B2',
+    pronunciation: '/huːm/',
+    meaning: 'kimi, kime (resmi kullanım)',
+    examples: [
+      { en: 'To whom should I address this letter?' },
+      { en: 'She is the person with whom I discussed the new project.' }
+    ]
+  },
+  {
+    word: 'whose',
+    type: 'det., pron.',
+    level: 'B2',
+    pronunciation: '/huz/',
+    meaning: 'kimin, ait olan',
+    examples: [
+      { en: 'I met a man whose ideas about technology were very innovative.' },
+      { en: 'Whose book is this lying on the table?' }
+    ]
+  },
+  {
+    word: 'why',
+    type: 'adv.',
+    level: 'A1',
+    pronunciation: '/waɪ/',
+    meaning: 'neden, niçin',
+    examples: [
+      { en: 'Why did you decide to study abroad?' },
+      { en: 'She asked him why he was late for the meeting.' }
+    ]
+  },
+  {
+    word: 'wide',
+    type: 'adj., widely adv.',
+    level: 'A2',
+    pronunciation: '/waɪd/',
+    meaning: 'geniş, bol; geniş ölçüde',
+    examples: [
+      { en: 'The river is very wide at this point, making it difficult to cross.' },
+      { en: 'The new policy has been widely accepted by the community.' }
+    ]
+  },
+  {
+    word: 'width',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/wɪdθ/',
+    meaning: 'genişlik, boyut',
+    examples: [
+      { en: 'Measure the width of the table before buying a tablecloth.' },
+      { en: 'The width of the road allows for two-way traffic without congestion.' }
+    ]
+  },
+  {
+    word: 'wife',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/waɪf/',
+    meaning: 'eş, karı',
+    examples: [
+      { en: 'Her wife supports her in every decision she makes.' },
+      { en: 'They celebrated their wedding anniversary with a romantic dinner, as a loving wife and husband.' }
+    ]
+  },
+  {
+    word: 'wild',
+    type: 'adj., wildly adv.',
+    level: 'A2',
+    pronunciation: '/waɪld/',
+    meaning: 'vahşi, çılgın; vahşice, deli gibi',
+    examples: [
+      { en: 'The wild animals roamed freely in the vast savanna.' },
+      { en: 'He laughed wildly at the comedian\'s hilarious jokes.' }
+    ]
+  },
+  {
+    word: 'will',
+    type: 'modal v., n.',
+    level: 'A1',
+    pronunciation: '/wɪl/',
+    meaning: 'gelecek zaman kipi; irade, vasiyet',
+    examples: [
+      { en: 'I will call you as soon as I arrive at the airport.' },
+      { en: 'Her last will and testament was read in front of the family.' }
+    ]
+  },
+  {
+    word: 'willing',
+    type: 'adj., willingly adv., unwilling adj., unwillingly adv.',
+    level: 'B1',
+    pronunciation: '/ˈwɪlɪŋ/',
+    meaning: 'istekli, gönüllü; isteyerek, gönüllü olarak; isteksiz, gönülsüz',
+    examples: [
+      { en: 'She is always willing to help others, no matter how busy she is.' },
+      { en: 'He was unwilling to accept the offer, even though it was very generous.' }
+    ]
+  },
+  {
+    word: 'willingness',
+    type: 'n.',
+    level: 'B1',
+    pronunciation: '/ˈwɪlɪŋnəs/',
+    meaning: 'gönüllülük, isteklilik',
+    examples: [
+      { en: 'Her willingness to learn new skills impressed her supervisors.' },
+      { en: 'The project succeeded largely because of the team\'s collective willingness to work hard.' }
+    ]
+  },
+  {
+    word: 'win',
+    type: 'v. (winning adj.)',
+    level: 'A1',
+    pronunciation: '/wɪn/',
+    meaning: 'kazanmak; kazanan, başarılı',
+    examples: [
+      { en: 'They hope to win the championship after a season of hard training.' },
+      { en: 'Her winning smile charmed everyone at the party.' }
+    ]
+  },
+  {
+    word: 'wind',
+    type: 'v. (/weɪnd/ - wind up), n. (/wɪnd/)',
+    level: 'B1',
+    pronunciation: '/waɪnd/ for v. and /wɪnd/ for n.',
+    meaning: 'sarmak, dolamak; rüzgar, esinti',
+    examples: [
+      { en: 'Please wind up the old clock before you hang it on the wall.' },
+      { en: 'A gentle wind cooled us during the hot summer day.' }
+    ]
+  },
+  {
+    word: 'window',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/ˈwɪndoʊ/',
+    meaning: 'pencere',
+    examples: [
+      { en: 'She opened the window to let in some fresh air.' },
+      { en: 'The view from the top-floor window was absolutely breathtaking.' }
+    ]
+  },
+  {
+    word: 'wine',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/waɪn/',
+    meaning: 'şarap',
+    examples: [
+      { en: 'He enjoyed a glass of red wine with dinner.' },
+      { en: 'The vineyard produces some of the finest wine in the region.' }
+    ]
+  },
+  {
+    word: 'wing',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/wɪŋ/',
+    meaning: 'kanat; kanat bölümü (örn: binada)',
+    examples: [
+      { en: 'The bird spread its wings and flew gracefully into the sky.' },
+      { en: 'The hospital building has a separate wing for emergency services.' }
+    ]
+  },
+  {
+    word: 'winner',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/ˈwɪnər/',
+    meaning: 'kazanan, şampiyon',
+    examples: [
+      { en: 'The winner of the contest was announced at the end of the event.' },
+      { en: 'She was declared the winner after a hard-fought competition.' }
+    ]
+  },
+  {
+    word: 'winter',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/ˈwɪntər/',
+    meaning: 'kış, kış mevsimi',
+    examples: [
+      { en: 'Winter in this region can be very cold and snowy.' },
+      { en: 'They spent the winter holiday skiing in the mountains.' }
+    ]
+  },
+  {
+    word: 'wire',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/waɪər/',
+    meaning: 'tel, kablo',
+    examples: [
+      { en: 'The electrician replaced the old wire in the building with a safer alternative.' },
+      { en: 'A thin wire connected the battery to the light bulb in the circuit.' }
+    ]
+  },
+  {
+    word: 'wise',
+    type: 'adj.',
+    level: 'B1',
+    pronunciation: '/waɪz/',
+    meaning: 'akıllı, bilge; tedbirli',
+    examples: [
+      { en: 'It is wise to save money for unexpected expenses.' },
+      { en: 'The old man was known as a wise advisor in the village.' }
+    ]
+  },
+  {
+    word: 'wish',
+    type: 'v., n.',
+    level: 'A1',
+    pronunciation: '/wɪʃ/',
+    meaning: 'dilemek, arzu etmek; dilek, istek',
+    examples: [
+      { en: 'I wish for a peaceful world full of kindness.' },
+      { en: 'Her birthday wish was to travel to new and exciting places.' }
+    ]
+  },
+  {
+    word: 'with',
+    type: 'prep.',
+    level: 'A1',
+    pronunciation: '/wɪð/',
+    meaning: '-ile, beraber',
+    examples: [
+      { en: 'She went to the cinema with her friends on Friday night.' },
+      { en: 'He always carries his umbrella with him in case it rains.' }
+    ]
+  },
+  {
+    word: 'withdraw',
+    type: 'v.',
+    level: 'B1',
+    pronunciation: '/wɪðˈdrɔː/',
+    meaning: 'çekilmek, geri almak',
+    examples: [
+      { en: 'He decided to withdraw his application after reconsidering his career goals.' },
+      { en: 'The company had to withdraw the product from the market due to safety concerns.' }
+    ]
+  },
+  {
+    word: 'within',
+    type: 'prep.',
+    level: 'A2',
+    pronunciation: '/wɪˈðɪn/',
+    meaning: 'içinde, ... kadar',
+    examples: [
+      { en: 'Please complete the assignment within the next two days.' },
+      { en: 'They achieved their goals within a remarkably short period of time.' }
+    ]
+  },
+  {
+    word: 'without',
+    type: 'prep.',
+    level: 'A1',
+    pronunciation: '/wɪˈðaʊt/',
+    meaning: '-sız, -siz',
+    examples: [
+      { en: 'He left the house without his keys by mistake.' },
+      { en: 'It is hard to imagine life without music.' }
+    ]
+  },
+  {
+    word: 'witness',
+    type: 'n., v.',
+    level: 'B1',
+    pronunciation: '/ˈwɪtnəs/',
+    meaning: 'tanık, şahit; tanık olmak, gözlemlemek',
+    examples: [
+      { en: 'The witness provided crucial information that helped solve the case.' },
+      { en: 'I was fortunate to witness a beautiful sunset on my vacation.' }
+    ]
+  },
+  {
+    word: 'woman',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/ˈwʊmən/',
+    meaning: 'kadın, hanım',
+    examples: [
+      { en: 'The woman in the red dress smiled warmly as she greeted her guests.' },
+      { en: 'Every woman deserves to be treated with respect and dignity.' }
+    ]
+  },
+  {
+    word: 'wonder',
+    type: 'v.',
+    level: 'A2',
+    pronunciation: '/ˈwʌndər/',
+    meaning: 'merak etmek, şaşırmak',
+    examples: [
+      { en: 'I often wonder what life would be like in a different country.' },
+      { en: 'He wondered how the ancient people built such magnificent structures.' }
+    ]
+  },
+  {
+    word: 'wonderful',
+    type: 'adj.',
+    level: 'A1',
+    pronunciation: '/ˈwʌndərfl/',
+    meaning: 'harika, mükemmel',
+    examples: [
+      { en: 'We had a wonderful time on our vacation at the beach.' },
+      { en: 'Her performance was absolutely wonderful and received a standing ovation.' }
+    ]
+  },
+  {
+    word: 'wood',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/wʊd/',
+    meaning: 'odun, ahşap',
+    examples: [
+      { en: 'The cabin was built entirely out of wood and had a rustic charm.' },
+      { en: 'They collected fallen wood to build a small bonfire on a chilly evening.' }
+    ]
+  },
+  {
+    word: 'wooden',
+    type: 'adj.',
+    level: 'A2',
+    pronunciation: '/ˈwʊdən/',
+    meaning: 'odundan yapılmış, ahşap',
+    examples: [
+      { en: 'The old house featured wooden floors and beams throughout its structure.' },
+      { en: 'She prefers furniture with a natural, wooden finish.' }
+    ]
+  },
+  {
+    word: 'wool',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/wʊl/',
+    meaning: 'yün, koyun yünü',
+    examples: [
+      { en: 'The sweater is made of soft, warm wool that is perfect for winter.' },
+      { en: 'She uses wool to knit blankets and scarves for the cold season.' }
+    ]
+  },
+  {
+    word: 'word',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/wɜːrd/',
+    meaning: 'kelime, söz',
+    examples: [
+      { en: 'Every word in that sentence has a special meaning.' },
+      { en: 'He learned a new word every day to expand his vocabulary.' }
+    ]
+  },
+  {
+    word: 'work',
+    type: 'v., n. (working adj.)',
+    level: 'A1',
+    pronunciation: '/wɜːrk/',
+    meaning: 'çalışmak, iş; iş, çalışma',
+    examples: [
+      { en: 'She goes to work by bus every morning.' },
+      { en: 'Hard work and dedication are key factors for success.' }
+    ]
+  },
+  {
+    word: 'worker',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/ˈwɜːrkər/',
+    meaning: 'işçi, çalışan',
+    examples: [
+      { en: 'The factory workers protested for better working conditions.' },
+      { en: 'A skilled worker is essential for the efficient running of the workshop.' }
+    ]
+  },
+  {
+    word: 'world',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/wɜːrld/',
+    meaning: 'dünya, evren',
+    examples: [
+      { en: 'The world is full of diverse cultures and traditions.' },
+      { en: 'She dreams of traveling around the world and experiencing new adventures.' }
+    ]
+  },
+  {
+    word: 'worry',
+    type: 'v., n. (worrying adj., worried adj.)',
+    level: 'A2',
+    pronunciation: '/ˈwʌri/',
+    meaning: 'endişe etmek, kaygılanmak; endişe, kaygı',
+    examples: [
+      { en: 'Don\'t worry too much about the little things in life.' },
+      { en: 'Her constant worry about the future kept her up at night.' }
+    ]
+  },
+  {
+    word: 'worse',
+    type: 'adj.',
+    level: 'B1',
+    pronunciation: '/wɜːrs/',
+    meaning: 'daha kötü, daha fena',
+    examples: [
+      { en: 'The situation became worse after the heavy rains caused flooding in the area.' },
+      { en: 'He felt worse after hearing the disappointing news about his project.' }
+    ]
+  },
+  {
+    word: 'worst',
+    type: 'adj.',
+    level: 'B1',
+    pronunciation: '/wɜːrst/',
+    meaning: 'en kötü, en fena',
+    examples: [
+      { en: 'This is the worst movie I have ever seen.' },
+      { en: 'Her performance was the worst of the entire show, and she was visibly upset.' }
+    ]
+  },
+  {
+    word: 'worship',
+    type: 'n., v.',
+    level: 'B2',
+    pronunciation: '/ˈwɜːrʃɪp/',
+    meaning: 'ibadet, tapınma; tapmak, saygı göstermek',
+    examples: [
+      { en: 'Many cultures have rituals of worship that honor their deities.' },
+      { en: 'They gather every Sunday to worship and pray together.' }
+    ]
+  },
+  {
+    word: 'worth',
+    type: 'adj.',
+    level: 'B1',
+    pronunciation: '/wɜːrθ/',
+    meaning: 'değerinde, kıymetli',
+    examples: [
+      { en: 'This painting is worth a lot of money due to its historical significance.' },
+      { en: 'It is not worth arguing over trivial matters.' }
+    ]
+  },
+  {
+    word: 'would',
+    type: 'modal v.',
+    level: 'A1',
+    pronunciation: '/wʊd/',
+    meaning: 'olurdu, -ecekti; dilek kipinde kullanılır',
+    examples: [
+      { en: 'I would love to visit Italy someday.' },
+      { en: 'He said he would help us with the project if he had time.' }
+    ]
+  },
+  {
+    word: 'wound',
+    type: 'n., v. (wounded adj.)',
+    level: 'B2',
+    pronunciation: '/wuːnd/',
+    meaning: 'yaralanma, yara; yaralamak, incitmek',
+    examples: [
+      { en: 'The soldier received a deep wound during the battle and was immediately taken to the hospital.' },
+      { en: 'She was deeply wounded by the harsh words spoken during the argument.' }
+    ]
+  },
+  {
+    word: 'wrap',
+    type: 'v.',
+    level: 'A2',
+    pronunciation: '/ræp/',
+    meaning: 'sarmak, paketlemek',
+    examples: [
+      { en: 'Please wrap the gift carefully in colorful paper.' },
+      { en: 'They used fabric to wrap the fragile item for safe transport.' }
+    ]
+  },
+  {
+    word: 'wrist',
+    type: 'n.',
+    level: 'A2',
+    pronunciation: '/rɪst/',
+    meaning: 'bilek',
+    examples: [
+      { en: 'She wore a bracelet around her left wrist every day.' },
+      { en: 'He felt a sharp pain in his wrist after typing for several hours.' }
+    ]
+  },
+  {
+    word: 'write',
+    type: 'v. (writing n., written adj.)',
+    level: 'A1',
+    pronunciation: '/raɪt/',
+    meaning: 'yazmak, kaleme dökmek',
+    examples: [
+      { en: 'I like to write in my journal every night before going to bed.' },
+      { en: 'She has written several articles on modern art for local magazines.' }
+    ]
+  },
+  {
+    word: 'writer',
+    type: 'n.',
+    level: 'A1',
+    pronunciation: '/ˈraɪtər/',
+    meaning: 'yazar, kalemci',
+    examples: [
+      { en: 'The writer published her first novel at the age of twenty-five.' },
+      { en: 'He is a well-known writer whose books have been translated into many languages.' }
+    ]
+  }
+];

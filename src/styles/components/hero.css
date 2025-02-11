@@ -1,0 +1,744 @@
+/* 001: Hero Section Genel Ayarlar */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--bs-navy), var(--bs-primary), var(--bs-800));
+  padding: 64px 0;
+}
+
+/* 006: Hero İçerik */
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 24px;
+}
+
+/* Dekoratif Arka Plan */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/pattern.svg');
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* Hero İçerik */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+/* Hero Başlık */
+.hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Hero Açıklama */
+.hero-description {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 48px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Arama Kutusu */
+.search-box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-box:focus-within {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.search-box input {
+  width: 100%;
+  padding: 20px 48px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* İstatistik Kartları */
+.stats-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 24px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 48px 0;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .search-box {
+    margin: 0 16px;
+  }
+
+  .search-box input {
+    padding: 16px 40px;
+    font-size: 14px;
+  }
+}
+
+/* 097: Arama Kutusu Placeholder */
+.search-box input::placeholder {
+  color: var(--bs-navygri);
+}
+
+/* 102: Öğrenme İstatistikleri */
+.learning-stats {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* 107: İstatistik Kartı */
+.stats-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 20px 0;
+  box-shadow: 0 4px 12px rgba(8, 28, 158, 0.05);
+  border: 1px solid var(--bs-100);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  margin: 0 auto;
+}
+
+/* 116: İstatistik Kartı Header */
+.stats-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 124: İstatistik Kartı Başlık */
+.stats-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+
+/* 129: İstatistik Kartı Başlık h3 */
+.stats-title h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--bs-navy);
+  margin: 0;
+}
+
+/* 134: İstatistik Kartı Alt Başlık */
+.stats-subtitle {
+  font-size: 15px;
+  color: var(--bs-primary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  padding: 4px 12px;
+  background: var(--bs-50);
+  border-radius: 100px;
+}
+
+/* 143: İstatistik Kartı Gövde */
+.stats-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 300px;
+}
+
+/* 149: Progress Wrapper */
+.progress-wrapper {
+  flex: 1;
+}
+
+/* 153: İstatistik Kartı Aksiyonlar */
+.stats-actions {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+/* 158: Öğrendikleri Göster Butonu */
+.view-learned {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--bs-50);
+  color: var(--bs-primary);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* 168: Öğrendikleri Göster Hover */
+.view-learned:hover {
+  background: white;
+  border-color: var(--bs-primary);
+  transform: translateY(-1px);
+}
+
+/* 173: Öğrendikleri Göster Aktif */
+.view-learned.active {
+  background: var(--bs-primary);
+  color: white;
+}
+
+/* 178: Progress Bar */
+.progress-bar {
+  height: 8px;
+  background: var(--bs-100);
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+  margin: 0 -24px;
+  width: calc(100% + 48px);
+}
+
+/* 184: Progress Fill */
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--bs-primary) 0%, var(--bs-600) 100%);
+  border-radius: 0 0 16px 16px;
+  position: relative;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 191: Progress Fill After */
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  animation: shimmer 2s infinite;
+  background-size: 200% 100%;
+}
+
+/* 200: Progress Text */
+.progress-text {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  padding: 0 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 100px;
+}
+
+/* 209: Dekoratif Öğeler - Stats Card Öncesi */
+.stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--bs-50) 0%, transparent 70%);
+  opacity: 0.8;
+  transform: translate(30%, -30%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* 218: Dekoratif Öğeler - Stats Card Sonrası */
+.stats-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--bs-50) 0%, transparent 70%);
+  opacity: 0.6;
+  transform: translate(-30%, 30%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* 227: Animasyonlar */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 232: Responsive - Tablet ve Altı */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 24px 16px;
+    margin-bottom: 32px;
+  }
+  .hero-title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .hero-description {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .search-box {
+    margin: 0 auto 24px;
+    padding: 4px;
+  }
+  .stats-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  .stats-header > div {
+    width: 100%;
+  }
+  .stats-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .view-learned {
+    flex: 1;
+    justify-content: center;
+    padding: 10px;
+    font-size: 13px;
+  }
+  .progress-bar {
+    height: 6px;
+    margin: 0 -20px;
+    width: calc(100% + 40px);
+  }
+}
+
+/* 257: Responsive - Mobil (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+  }
+  .hero-description {
+    font-size: 14px;
+  }
+  .stats-card {
+    padding: 16px 16px 0;
+  }
+  .stats-header {
+    margin-bottom: 16px;
+  }
+  .stats-title h3 {
+    font-size: 16px;
+  }
+  .stats-subtitle {
+    font-size: 13px;
+  }
+  .view-learned {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  .learning-stats {
+    margin: 16px auto;
+  }
+  .stats-card {
+    padding: 16px 16px 0;
+  }
+  .stats-header {
+    margin-bottom: 16px;
+  }
+  .progress-bar {
+    margin: 0 -16px;
+    width: calc(100% + 32px);
+  }
+}
+
+/* 272: Ek Responsive Ayarlar - Genel */
+@media (max-width: 600px) {
+  .hero-content {
+    padding: 0 16px;
+  }
+}
+
+/* 276: Özel Öğrenme İstatistikleri */
+.stats-card .stats-header,
+.stats-card .stats-actions {
+  flex-wrap: wrap;
+}
+
+/* 280: Butonların Hover Efektleri */
+.view-learned:active {
+  transform: translateY(0);
+}
+
+/* 283: Genel Link Hover */
+a:hover {
+  text-decoration: none;
+}
+
+/* 286: Ekstra Genel Ayarlar */
+.container {
+  width: 100%;
+  padding: 0 16px;
+}
+
+/* 289: Yazı Tipi ve Renk Ayarları */
+body {
+  font-family: sans-serif;
+  color: var(--bs-navy);
+}
+
+/* 292: Link Renkleri */
+a {
+  color: var(--bs-primary);
+}
+
+/* 295: Dekoratif Gradient Ayarları */
+.hero-title,
+.hero-description {
+  background-clip: text;
+}
+
+/* 298: Arama Kutusu Kenarlıkları */
+.search-box {
+  border-width: 1px;
+}
+
+/* 301: Input Font Ayarları */
+.search-box input {
+  font-family: inherit;
+}
+
+/* 304: Breadcrumb Kenarlıkları */
+.breadcrumb-item a {
+  border-radius: 50px;
+}
+
+/* 307: Footer Ayarları (Varsa) */
+.footer {
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* 310: Ek Dekoratif Öğeler */
+.hero-section::after {
+  content: '';
+  display: block;
+  height: 1px;
+}
+
+/* 313: Ek Boşluklar */
+.hero-content > * + * {
+  margin-top: 16px;
+}
+
+/* 316: Responsive Grid Ayarları */
+.container .grid {
+  gap: 16px;
+}
+
+/* 319: Buton Geçiş Efektleri */
+button {
+  transition: all 0.3s ease;
+}
+
+/* 322: Focus Durumları */
+input:focus, button:focus {
+  outline: none;
+}
+
+/* 325: Ek Genel Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 8px;
+  }
+}
+
+/* 329: Detaylı Responsive Ayarlar */
+@media (min-width: 769px) {
+  .breadcrumb {
+    gap: 4px;
+  }
+}
+
+/* 332: Ek Stil Notları */
+/* İstediğiniz ek özelleştirmeleri buraya ekleyebilirsiniz. */
+
+/* 335: Renk Değişkenleri Notu */
+/* --bs-primary, --bs-navy, --bs-navygri gibi renk değişkenlerinin tanımlı olduğundan emin olun. */
+
+/* 338: Ek Spacing */
+.container {
+  margin-bottom: 24px;
+}
+
+/* 341: Ek Genel Buton Stilleri */
+button {
+  cursor: pointer;
+}
+
+/* 344: Ek Genel Link Stilleri */
+a {
+  transition: color 0.2s ease;
+}
+
+/* 347: Ek Alt Başlık Stilleri */
+.subtitle {
+  font-size: 14px;
+  color: var(--bs-navygri);
+}
+
+/* 350: Ek Metin Ağırlıkları */
+.font-semibold {
+  font-weight: 600;
+}
+
+/* 353: Ek Yazı Tipi Ağırlıkları */
+.font-bold {
+  font-weight: 700;
+}
+
+/* 356: Ek Boşluk Ayarları */
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+/* 359: Ek Kenar Boşlukları */
+.px-4 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* 362: Ek Responsive Font Ayarları */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+  }
+}
+
+/* 365: Ek Responsive Padding */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 0 8px;
+  }
+}
+
+/* 368: Ek Responsive Margin */
+@media (max-width: 480px) {
+  .breadcrumb {
+    margin-bottom: 8px;
+  }
+}
+
+/* 371: Ek Genel Boşluk */
+.mb-8 {
+  margin-bottom: 32px;
+}
+
+/* 374: Ek Genel Border */
+.border {
+  border-width: 1px;
+}
+
+/* 377: Ek Genel Border-Radius */
+.rounded-xl {
+  border-radius: 12px;
+}
+
+/* 380: Ek Genel Shadow */
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 383: Ek Genel Transition */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* 386: Ek Genel Transform */
+.transform {
+  transform: translateY(0);
+}
+
+/* 389: Ek Genel Hover */
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* 392: Ek Responsive Grid */
+@media (max-width: 600px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 395: Ek Responsive Buton Stili */
+@media (max-width: 600px) {
+  button {
+    font-size: 14px;
+  }
+}
+
+/* 398: Ek Genel Container Ayarları */
+.container {
+  max-width: 100%;
+}
+
+/* 401: Ek Genel Margin Ayarları */
+.container > * {
+  margin-bottom: 16px;
+}
+
+/* 404: Ek Genel Padding Ayarları */
+.container > * {
+  padding: 0 16px;
+}
+
+/* 407: Ek Responsive Layout */
+@media (max-width: 768px) {
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+/* 410: Ek Responsive Flex */
+.flex-col {
+  flex-direction: column;
+}
+
+/* 413: Ek Responsive Align */
+.items-center {
+  align-items: center;
+}
+
+/* 416: Ek Responsive Justify */
+.justify-center {
+  justify-content: center;
+}
+
+/* 419: Ek Responsive Gap */
+.gap-4 {
+  gap: 16px;
+}
+
+/* 422: Ek Responsive Gap Küçük */
+.gap-2 {
+  gap: 8px;
+}
+
+/* 425: Ek Responsive Metin Merkezi */
+.text-center {
+  text-align: center;
+}
+
+/* 428: Ek Responsive Metin Sola */
+.sm\:text-left {
+  text-align: left;
+}
+
+/* 431: Ek Responsive Buton Genişliği */
+.w-full {
+  width: 100%;
+}
+
+/* 434: Ek Responsive Buton Yüksekliği */
+.h-full {
+  height: 100%;
+}
+
+/* 437: Ek Responsive Margin Ayarları */
+.m-auto {
+  margin: auto;
+}
+
+/* 440: Ek Responsive Display */
+.block {
+  display: block;
+}
+
+/* 443: Ek Responsive Gizleme */
+.hidden {
+  display: none;
+}
+
+/* 446: Ek Responsive Transition */
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+/* 449: Ek Responsive Z-index */
+.z-50 {
+  z-index: 50;
+}
+
+/* 452: Son Satır - Dosya Sonu */
+
+/* Özel Medya Query: Desktop ekranlarda (1024px ve üzeri) .learned-buttons kapsayıcısını sağa hizala */
+@media (min-width: 1024px) {
+  .learned-buttons {
+    justify-content: flex-end;
+  }
+}

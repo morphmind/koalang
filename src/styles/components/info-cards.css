@@ -1,0 +1,131 @@
+/* Info Cards */
+.oxford-info {
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 0 32px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.info-card {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff, #f5f7ff);
+  padding: 32px;
+  border-radius: 24px;
+  text-align: left;
+  border: 1px solid var(--bs-100);
+  box-shadow: 
+    0 4px 6px -1px rgba(8, 28, 158, 0.02),
+    0 2px 4px -1px rgba(8, 28, 158, 0.01);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--bs-primary), var(--bs-800));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.info-card:hover::before {
+  opacity: 0.02;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(8, 28, 158, 0.08);
+  border-color: var(--bs-primary);
+}
+
+.info-card svg {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 16px;
+  background: var(--bs-50);
+  color: var(--bs-primary);
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover svg {
+  background: var(--bs-primary);
+  color: white;
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 8px 24px rgba(8, 28, 158, 0.15);
+}
+
+.info-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--bs-navy);
+  margin: 0 0 16px;
+  line-height: 1.4;
+  background: linear-gradient(135deg, var(--bs-navy), var(--bs-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.info-card h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--bs-primary), transparent);
+  border-radius: 100px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover h3::after {
+  opacity: 1;
+  transform: translateY(0);
+  width: 60%;
+}
+
+.info-card p {
+  color: var(--bs-navygri);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .info-card {
+    padding: 24px;
+  }
+  
+  .info-card h3 {
+    font-size: 18px;
+  }
+  
+  .info-card p {
+    font-size: 14px;
+  }
+}

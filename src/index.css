@@ -1,0 +1,114 @@
+@import './styles/index.css';
+
+/* Phone Input Styles */
+.PhoneInput {
+  --bs-primary: #6366f1;
+  --bs-navygri: #64748b;
+  position: relative;
+}
+
+.PhoneInputCountry {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  gap: 0.5rem;
+}
+
+.PhoneInputCountrySelect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4.5rem;
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.PhoneInputCountryIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.PhoneInputCountrySelectArrow {
+  margin-left: 0.25rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-style: solid;
+  border-color: var(--bs-navygri);
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  transform: rotate(135deg);
+  opacity: 0.7;
+}
+
+/* Phone Input Dropdown */
+.PhoneInputCountrySelect_list {
+  position: absolute;
+  z-index: 50;
+  margin-top: 0.5rem;
+  max-height: 12rem;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 0.5rem;
+}
+
+.PhoneInputCountrySelect_listItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.PhoneInputCountrySelect_listItem:hover {
+  background: #f8fafc;
+}
+
+.PhoneInputCountrySelect_listItem--selected {
+  background: #eff6ff;
+}
+
+.PhoneInputCountrySelect_listItem_label {
+  font-size: 0.875rem;
+  color: #1e293b;
+}
+
+.PhoneInputCountrySelect_listItem_calling-code {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+/* Search Input */
+.PhoneInputCountrySelect_search {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.PhoneInputCountrySelect_search_input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.PhoneInputCountrySelect_search_input:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
