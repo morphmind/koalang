@@ -3,6 +3,8 @@ import { useSettings } from '../context/SettingsContext';
 import { LoadingSpinner } from '../../auth/components/LoadingSpinner';
 import { ErrorMessage } from '../../auth/components/ErrorMessage';
 import { Smartphone, AlertCircle, CheckCircle2 } from 'lucide-react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 export const SettingsPhonePage: React.FC = () => {
   const { profile, updatePhone, isLoading, error } = useSettings();
@@ -12,12 +14,6 @@ export const SettingsPhonePage: React.FC = () => {
   const [verificationCode, setVerificationCode] = useState('');
   const [showVerification, setShowVerification] = useState(false);
 
-  // Telefon numarası formatı kontrolü
-  const validatePhoneNumber = (phone: string) => {
-    const phoneRegex = /^\+90[0-9]{10}$/;
-    return phoneRegex.test(phone);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormError(null);
@@ -26,11 +22,6 @@ export const SettingsPhonePage: React.FC = () => {
     // Validasyon
     if (!newPhone) {
       setFormError('Lütfen telefon numaranızı girin.');
-      return;
-    }
-
-    if (!validatePhoneNumber(newPhone)) {
-      setFormError('Geçersiz telefon numarası formatı. Lütfen +90 ile başlayan 10 haneli bir numara girin.');
       return;
     }
 
@@ -119,16 +110,36 @@ export const SettingsPhonePage: React.FC = () => {
               <label className="block text-sm font-medium text-bs-navy mb-2">
                 Yeni Telefon Numarası
               </label>
-              <input
-                type="tel"
-                value={newPhone}
-                onChange={(e) => setNewPhone(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-bs-100 focus:ring-2 
-                         focus:ring-bs-primary/10 focus:border-bs-primary transition-colors"
-                placeholder="+901234567890"
-              />
+              <div className="relative">
+                <PhoneInput
+                  country="tr"
+                  value={newPhone}
+                  onChange={setNewPhone}
+                  enableSearch
+                  searchPlaceholder="Ülke ara..."
+                  inputClass="w-full px-4 py-3 rounded-lg border border-bs-100 focus:ring-2 
+                           focus:ring-bs-primary/10 focus:border-bs-primary transition-colors"
+                  buttonClass="border-bs-100 rounded-lg bg-white hover:bg-bs-50 
+                            hover:border-bs-primary transition-all"
+                  dropdownClass="rounded-xl border-bs-100 shadow-lg mt-2"
+                  searchClass="rounded-lg border-bs-100 mb-2"
+                  containerClass="phone-input-container"
+                  specialLabel=""
+                  localization={{
+                    tr: 'Türkiye',
+                    us: 'Amerika Birleşik Devletleri',
+                    gb: 'Birleşik Krallık',
+                    de: 'Almanya',
+                    fr: 'Fransa',
+                    it: 'İtalya',
+                    es: 'İspanya',
+                    nl: 'Hollanda'
+                  }}
+                  preferredCountries={['tr', 'us', 'gb', 'de']}
+                />
+              </div>
               <p className="mt-2 text-xs text-bs-navygri">
-                Lütfen başında + işareti ile birlikte ülke kodunu girin. Örnek: +901234567890
+                Ülke kodunu değiştirmek için bayrak simgesine tıklayabilirsiniz
               </p>
             </div>
 

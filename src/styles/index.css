@@ -15,6 +15,7 @@
 @import './components/faq.css';
 @import './components/hero.css';
 @import './components/content.css';
+@import './components/phone-input.css';
 
 /* Import Pages */
 @import './pages/oxford.css';

@@ -9,6 +9,8 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
+  envDir: '.',
+  envDir: '.',
   optimizeDeps: {
     exclude: ['lucide-react'],
   },

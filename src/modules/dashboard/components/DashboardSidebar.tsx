@@ -1,14 +1,27 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BookOpen, Award, Activity, Settings, ChevronRight, Zap, TrendingUp, Calendar, Brain, Target, Trophy } from 'lucide-react';
+import { BookOpen, Award, Activity, Settings, ChevronRight, Zap, Brain, Target, Trophy, PenTool } from 'lucide-react';
 import { useDashboard } from '../context/DashboardContext';
 import { useAuth } from '../../auth/context/AuthContext';
 import { useWords } from '../../words/context/WordContext';
+import { useAuthPopup } from '../../auth/hooks/useAuthPopup';
 
 export const DashboardSidebar: React.FC = () => {
   const { user } = useAuth();
   const { stats } = useDashboard();
   const { getLearnedWordsCount } = useWords();
+  const { openAuthPopup } = useAuthPopup(); 
+  const [showQuiz, setShowQuiz] = React.useState(false);
+
+  const handleQuizClick = () => {
+    if (!user) {
+      openAuthPopup();
+      return;
+    }
+    // Quiz popup'ını aç 
+    const event = new CustomEvent('showQuiz', { detail: { show: true } });
+    window.dispatchEvent(event);
+  };
 
   // Kazanılan rozetleri hesapla
   const badges = React.useMemo(() => {
@@ -110,26 +123,28 @@ export const DashboardSidebar: React.FC = () => {
     <aside className="lg:col-span-3 lg:sticky lg:top-8 space-y-6">
       {/* Profil Kartı */}
       <div className="bg-white rounded-2xl shadow-lg border border-bs-100 overflow-hidden">
-        <div className="p-6 bg-gradient-to-br from-bs-primary to-bs-800">
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
+        <div className="bg-gradient-to-br from-bs-primary to-bs-800">
+          {/* Avatar */}
+          <div className="flex flex-col items-center pt-8 pb-6">
+            <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4
+                         ring-4 ring-white/20 shadow-lg relative z-10">
               {user.avatar ? (
                 <img 
                   src={user.avatar} 
                   alt={user.username}
-                  className="w-full h-full rounded-xl object-cover"
+                  className="w-full h-full rounded-2xl object-cover"
                 />
               ) : (
-                <div className="text-2xl font-bold text-white">
+                <div className="text-3xl font-bold text-white">
                   {user.username[0].toUpperCase()}
                 </div>
               )}
             </div>
-            <div>
-              <h2 className="text-lg font-semibold text-white">
+            <div className="text-center">
+              <h2 className="text-xl font-semibold text-white mb-1">
                 {user.username}
               </h2>
-              <p className="text-sm text-white/80">
+              <p className="text-sm text-white/70">
                 {user.email}
               </p>
             </div>
@@ -137,14 +152,14 @@ export const DashboardSidebar: React.FC = () => {
 
           {/* Rozetler */}
           {earnedBadges.length > 0 && (
-            <div className="mt-6 pt-6 border-t border-white/10">
+            <div className="px-6 py-4 border-t border-white/10 bg-white/5">
               <div className="flex flex-wrap gap-2">
                 {earnedBadges.map(badge => {
                   const Icon = badge.icon;
                   return (
                     <div 
                       key={badge.id}
-                      className="group relative"
+                      className="group relative flex items-center justify-center"
                       title={`${badge.title} - ${badge.description}`}
                     >
                       <div className={`w-8 h-8 rounded-lg ${badge.color} flex items-center justify-center
@@ -153,11 +168,15 @@ export const DashboardSidebar: React.FC = () => {
                       </div>
                       
                       {/* Tooltip */}
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1
-                                   bg-white rounded shadow-lg text-xs whitespace-nowrap opacity-0 
-                                   group-hover:opacity-100 transition-opacity pointer-events-none">
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 p-2
+                                   bg-white/95 backdrop-blur-sm rounded-lg shadow-xl text-xs whitespace-nowrap opacity-0 
+                                  group-hover:opacity-100 transition-all duration-200 pointer-events-none
+                                  min-w-[120px] z-[99999] transform -translate-y-2 group-hover:translate-y-0
+                                  border border-bs-100">
                         <div className="font-medium text-bs-navy">{badge.title}</div>
                         <div className="text-bs-navygri">{badge.description}</div>
+                        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-white 
+                                    transform rotate-45 border-r border-b border-bs-100"></div>
                       </div>
                     </div>
                   );
@@ -222,15 +241,18 @@ export const DashboardSidebar: React.FC = () => {
         </div>
         
         <div className="divide-y divide-bs-100">
-          <Link 
-            to="/quiz"
-            className="flex items-center gap-3 p-4 hover:bg-bs-50 transition-colors group"
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={handleQuizClick}
+            onKeyPress={(e) => e.key === 'Enter' && handleQuizClick()}
+            className="w-full flex items-center gap-3 p-4 hover:bg-bs-50 transition-colors group cursor-pointer"
           >
             <div className="w-8 h-8 rounded-lg bg-bs-50 flex items-center justify-center
                          group-hover:bg-white transition-colors">
-              <TrendingUp className="w-4 h-4 text-bs-primary" />
+              <PenTool className="w-4 h-4 text-bs-primary" />
             </div>
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0 text-left">
               <div className="font-medium text-sm text-bs-navy">Sınav Ol</div>
               <div className="text-xs text-bs-navygri truncate">
                 Öğrendiklerini test et
@@ -238,25 +260,7 @@ export const DashboardSidebar: React.FC = () => {
             </div>
             <ChevronRight className="w-4 h-4 text-bs-navygri group-hover:text-bs-primary 
                                   group-hover:translate-x-1 transition-all" />
-          </Link>
-          
-          <Link 
-            to="/learn"
-            className="flex items-center gap-3 p-4 hover:bg-bs-50 transition-colors group"
-          >
-            <div className="w-8 h-8 rounded-lg bg-bs-50 flex items-center justify-center
-                         group-hover:bg-white transition-colors">
-              <Calendar className="w-4 h-4 text-bs-primary" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="font-medium text-sm text-bs-navy">Günlük Hedef</div>
-              <div className="text-xs text-bs-navygri truncate">
-                10 yeni kelime öğren
-              </div>
-            </div>
-            <ChevronRight className="w-4 h-4 text-bs-navygri group-hover:text-bs-primary 
-                                  group-hover:translate-x-1 transition-all" />
-          </Link>
+          </div>
         </div>
       </div>
 

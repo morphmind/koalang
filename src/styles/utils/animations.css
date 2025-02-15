@@ -92,16 +92,29 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* Progress Bar Animation */
-@keyframes shimmer {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
+/* Word Card Swiper Styles */
+.words-swiper {
+  height: calc(100vh - 200px);
+  padding: 20px 0;
 }
 
-.animate-shimmer {
-  animation: shimmer 2s infinite;
+.words-swiper .swiper-slide {
+  height: auto;
+}
+
+.words-swiper .word-card {
+  height: 100%;
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .words-grid {
+    display: none;
+  }
+  
+  .word-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
 }

@@ -14,7 +14,16 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseKey, {
     persistSession: true,
     storage: window.localStorage,
     storageKey: 'sb-auth-token',
-    detectSessionInUrl: true
+    detectSessionInUrl: true,
+    flowType: 'pkce',
+    debug: true,
+    retryAttempts: 3,
+    retryInterval: 1000
+  },
+  global: {
+    headers: {
+      'x-client-info': 'koalang-web'
+    }
   },
   realtime: {
     params: {
@@ -23,24 +32,29 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseKey, {
   },
   db: {
     schema: 'public'
+  },
+  headers: {
+    'x-client-info': 'koalang-web'
   }
 });
 
 // Bağlantıyı test et
 supabase.auth.onAuthStateChange((event, session) => {
-  console.log('Supabase auth event:', event);
+  console.log('🔵 Auth durumu değişti:', { event, user: session?.user?.email });
   if (session?.user) {
-    console.log('Bağlantı başarılı, kullanıcı:', session.user.email);
+    console.log('🟢 Bağlantı başarılı, kullanıcı:', session.user.email);
+  } else {
+    console.log('🟡 Aktif oturum yok');
   }
 });
 
 // Realtime bağlantısını test et
 const channel = supabase.channel('db-changes')
   .on('postgres_changes', { event: '*', schema: 'public' }, (payload) => {
-    console.log('Realtime değişiklik:', payload);
+    console.log('🔵 Realtime değişiklik:', payload);
   })
   .subscribe((status) => {
-    console.log('Realtime bağlantı durumu:', status);
+    console.log('🔵 Realtime bağlantı durumu:', status);
   });
 
 // Veritabanı bağlantısını test et
@@ -52,10 +66,10 @@ export const testConnection = async () => {
       .single();
 
     if (error) throw error;
-    console.log('Veritabanı bağlantısı başarılı');
+    console.log('🟢 Veritabanı bağlantısı başarılı');
     return true;
   } catch (error) {
-    console.error('Veritabanı bağlantı hatası:', error);
+    console.error('🔴 Veritabanı bağlantı hatası:', error);
     return false;
   }
 };
@@ -67,7 +81,7 @@ export const checkAuth = async () => {
     if (error) throw error;
     return user;
   } catch (error) {
-    console.error('Oturum kontrolü hatası:', error);
+    console.error('🔴 Oturum kontrolü hatası:', error);
     return null;
   }
 };

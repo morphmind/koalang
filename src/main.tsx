@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { AppRoutes } from './routes';
 import './index.css';
 import { ErrorBoundary } from './components';
@@ -15,19 +16,21 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ErrorBoundary>
       <BrowserRouter>
-        <AuthProvider>
-          <WordProvider>
-            <DashboardProvider>
-              <NotificationProvider>
-                <SettingsProvider>
-                  <QuizProvider>
-                    <AppRoutes />
-                  </QuizProvider>
-                </SettingsProvider>
-              </NotificationProvider>
-            </DashboardProvider>
-          </WordProvider>
-        </AuthProvider>
+        <HelmetProvider>
+          <AuthProvider>
+            <WordProvider>
+              <DashboardProvider>
+                <NotificationProvider>
+                  <SettingsProvider>
+                    <QuizProvider>
+                      <AppRoutes />
+                    </QuizProvider>
+                  </SettingsProvider>
+                </NotificationProvider>
+              </DashboardProvider>
+            </WordProvider>
+          </AuthProvider>
+        </HelmetProvider>
       </BrowserRouter>
     </ErrorBoundary>
   </StrictMode>

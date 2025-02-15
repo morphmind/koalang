@@ -1,0 +1,157 @@
+/* Phone Input Container */
+.phone-input-container {
+  position: relative;
+}
+
+/* Input Styles */
+.phone-input-container .form-control {
+  width: 100% !important;
+  height: auto !important;
+  padding: 12px 12px 12px 60px !important;
+  border: 1px solid var(--bs-100) !important;
+  border-radius: 12px !important;
+  font-size: 15px !important;
+  color: var(--bs-navy) !important;
+  transition: all 0.2s ease !important;
+  background: white !important;
+}
+
+.phone-input-container .form-control:focus {
+  border-color: var(--bs-primary) !important;
+  box-shadow: 0 0 0 3px rgba(8, 28, 158, 0.1) !important;
+  outline: none !important;
+}
+
+/* Flag Button */
+.phone-input-container .flag-dropdown {
+  position: absolute !important;
+  top: 1px !important;
+  left: 1px !important;
+  bottom: 1px !important;
+  padding: 0 8px !important;
+  border: none !important;
+  border-radius: 11px 0 0 11px !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.phone-input-container .flag-dropdown:hover,
+.phone-input-container .flag-dropdown.open {
+  background: var(--bs-50) !important;
+}
+
+/* Flag */
+.phone-input-container .selected-flag {
+  padding: 0 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.phone-input-container .selected-flag .flag {
+  transform: scale(1.2) !important;
+}
+
+/* Arrow */
+.phone-input-container .selected-flag .arrow {
+  left: auto !important;
+  right: -8px !important;
+  border-top-color: var(--bs-navygri) !important;
+  transition: all 0.2s ease !important;
+}
+
+.phone-input-container .selected-flag .arrow.up {
+  border-top: none !important;
+  border-bottom: 4px solid var(--bs-primary) !important;
+}
+
+/* Country Dropdown */
+.phone-input-container .country-list {
+  margin: 8px 0 0 !important;
+  padding: 8px !important;
+  border: 1px solid var(--bs-100) !important;
+  border-radius: 12px !important;
+  background: white !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  max-height: 300px !important;
+}
+
+/* Search Box */
+.phone-input-container .search-box {
+  margin: 0 8px 8px !important;
+  padding: 8px 12px !important;
+  background: var(--bs-50) !important;
+  border: 1px solid var(--bs-100) !important;
+  border-radius: 8px !important;
+}
+
+.phone-input-container .search-box:focus {
+  border-color: var(--bs-primary) !important;
+  outline: none !important;
+}
+
+/* Country Item */
+.phone-input-container .country {
+  padding: 8px 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all 0.15s ease !important;
+  border-radius: 8px !important;
+}
+
+.phone-input-container .country:hover {
+  background: var(--bs-50) !important;
+}
+
+.phone-input-container .country.highlight {
+  background: var(--bs-primary) !important;
+  color: white !important;
+}
+
+/* Country Name */
+.phone-input-container .country-name {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  margin-right: 8px !important;
+}
+
+/* Dial Code */
+.phone-input-container .dial-code {
+  color: var(--bs-navygri) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+.phone-input-container .highlight .dial-code {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Scrollbar */
+.phone-input-container .country-list::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+.phone-input-container .country-list::-webkit-scrollbar-track {
+  background: var(--bs-50) !important;
+  border-radius: 100px !important;
+}
+
+.phone-input-container .country-list::-webkit-scrollbar-thumb {
+  background: var(--bs-200) !important;
+  border-radius: 100px !important;
+}
+
+.phone-input-container .country-list::-webkit-scrollbar-thumb:hover {
+  background: var(--bs-300) !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .phone-input-container .country-list {
+    width: calc(100vw - 32px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}

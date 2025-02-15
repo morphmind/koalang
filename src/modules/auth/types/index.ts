@@ -28,6 +28,6 @@ export interface AuthContextType {
   error: string | null;
   login: (credentials: LoginCredentials) => Promise<void>;
   register: (credentials: RegisterCredentials) => Promise<void>;
-  logout: () => Promise<void>;
+  logout: (navigate?: (path: string) => void) => Promise<void>;
   resetPassword: (email: string) => Promise<void>;
 }

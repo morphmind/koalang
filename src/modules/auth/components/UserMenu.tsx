@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useMemo, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useOnClickOutside } from '../hooks/useOnClickOutside';
 import { useKeyboard } from '../../../hooks/useKeyboard';
@@ -78,11 +79,12 @@ export const UserMenu: React.FC = () => {
     { icon: BookOpen, label: 'Öğrendiğim Kelimeler', href: '/dashboard/learned-words' },
     { icon: Settings, label: 'Ayarlar', href: '/dashboard/settings' }
   ], []);
+  const navigate = useNavigate();
 
   const handleLogoutClick = useCallback(async () => {
     try {
       setIsLoggingOut(true);
-      await logout();
+      await logout(navigate);
       setIsOpen(false);
     } catch (error) {
       console.error('Logout error:', error);

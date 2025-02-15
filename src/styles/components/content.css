@@ -1,7 +1,10 @@
 /* Content Section */
 .content-section {
+  width: 100%;
   padding: 16px 0;
   background: #fff;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Level Filters Container */
@@ -9,7 +12,15 @@
   position: relative;
   margin: 0 auto 32px;
   max-width: 1200px;
-  padding: 0 24px;
+  padding: 0 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  .level-filters-container {
+    max-width: 100%;
+  }
 }
 
 /* Level Filters */
@@ -300,7 +311,7 @@
   }
 
   .level-filters-container {
-    padding: 0 16px 16px;
+    padding: 0 1.25rem;
     margin-bottom: 24px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -317,7 +328,8 @@
   .words-grid {
     grid-template-columns: 1fr;
     gap: 16px;
-    padding: 0 16px;
+    padding: 0 1.25rem;
+    margin: 0;
   }
 
   .pagination {
@@ -344,6 +356,13 @@
     width: 44px;
     height: 44px;
     background: var(--bs-50);
+  }
+}
+
+@media (max-width: 640px) {
+  .level-filters-container,
+  .words-grid {
+    padding: 0 1rem;
   }
 }
 

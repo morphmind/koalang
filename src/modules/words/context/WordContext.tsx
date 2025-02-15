@@ -78,43 +78,29 @@ export const WordProvider: React.FC<{ children: React.ReactNode }> = ({ children
         payload: { word, isLearned, isLoading: false }
       });
 
-      // Önce mevcut kaydı kontrol et
-      const { data: existingRecord, error: checkError } = await supabase
+      // Veritabanını güncelle
+      const { data, error } = await supabase
         .from('user_progress')
-        .select()
-        .eq('user_id', user.id)
-        .eq('word', word)
-        .maybeSingle();
-
-      if (checkError) throw checkError;
-
-      let error;
-      if (existingRecord) {
-        // Kayıt varsa güncelle
-        const { error: updateError } = await supabase
-          .from('user_progress')
-          .update({
-            learned: isLearned,
-            last_reviewed: new Date().toISOString()
-          })
-          .eq('user_id', user.id)
-          .eq('word', word);
-        error = updateError;
-      } else {
-        // Kayıt yoksa yeni ekle
-        const { error: insertError } = await supabase
-          .from('user_progress')
-          .insert({
-            user_id: user.id,
-            word,
-            learned: isLearned,
-            last_reviewed: new Date().toISOString()
-          });
-        error = insertError;
-      }
+        .upsert({
+          user_id: user.id,
+          word,
+          learned: isLearned,
+          last_reviewed: new Date().toISOString(),
+          created_at: isLearned ? new Date().toISOString() : null // Yeni öğrenildiyse tarih ekle
+        });
 
       if (error) throw error;
 
+      // Öğrenilme tarihlerini güncelle (LearnedWordsPage'de kullanılıyor)
+      const event = new CustomEvent('updateLearningDates', {
+        detail: {
+          word,
+          date: isLearned ? new Date().toISOString() : null
+        }
+      });
+      window.dispatchEvent(event);
+
+      return true;
     } catch (err) {
       console.error('Kelime durumu güncellenirken hata:', err);
       // Hata durumunda state'i geri al
@@ -128,7 +114,6 @@ export const WordProvider: React.FC<{ children: React.ReactNode }> = ({ children
       });
       return false;
     }
-    return true;
   }, [user, state.learnedWords]);
 
   // Öğrenilen kelime sayısını getir

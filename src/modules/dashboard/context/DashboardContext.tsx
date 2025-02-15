@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useReducer, useCallback } from 'react';
+import React, { createContext, useContext, useReducer, useCallback, useEffect } from 'react';
 import { DashboardState, DashboardStats } from '../types';
 import { dashboardReducer } from './dashboardReducer';
 import { supabase } from '../../../lib/supabase';
+import { useAuth } from '../../auth';
 
 interface DashboardContextType extends DashboardState {
   loadDashboardStats: () => Promise<void>;
@@ -23,41 +24,66 @@ const DashboardContext = createContext<DashboardContextType | undefined>(undefin
 
 export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(dashboardReducer, initialState);
+  const { user } = useAuth();
 
   const loadDashboardStats = useCallback(async () => {
+    if (!user) {
+      dispatch({ type: 'FETCH_ERROR', payload: 'Oturum bulunamadı' });
+      return;
+    }
+
     try {
       dispatch({ type: 'FETCH_START' });
-
-      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-      if (sessionError) {
-        dispatch({ type: 'FETCH_ERROR', payload: sessionError.message });
-        return;
-      }
-      
-      if (!session?.user) {
-        dispatch({ type: 'FETCH_ERROR', payload: 'Oturum bulunamadı' });
-        return;
-      }
 
       // Öğrenilen kelimeler
       const { data: learnedWords, error: learnedError } = await supabase
         .from('user_progress')
         .select('word')
         .eq('learned', true)
-        .eq('user_id', session.user.id);
+        .eq('user_id', user.id);
 
       if (learnedError) throw learnedError;
 
       // Son 10 sınav sonucu
       const { data: quizResults, error: quizError } = await supabase
         .from('quiz_results')
-        .select('correct_answers, total_questions')
-        .eq('user_id', session.user.id)
+        .select('*')
+        .eq('user_id', user.id)
         .order('created_at', { ascending: false })
         .limit(10);
 
       if (quizError) throw quizError;
 
+      // Son aktiviteleri getir
+      const { data: activities, error: activitiesError } = await supabase
+        .from('user_progress')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false })
+        .limit(10);
+
+      if (activitiesError) throw activitiesError;
+
+      // Aktiviteleri birleştir ve sırala
+      const allActivities = [
+        ...(activities || []).map(activity => ({
+          id: activity.id,
+          type: 'learning',
+          title: 'Yeni Kelime Öğrenildi',
+          description: `"${activity.word}" kelimesini öğrendin`,
+          result: 'success',
+          timestamp: new Date(activity.created_at)
+        })),
+        ...(quizResults || []).map(quiz => ({
+          id: quiz.id,
+          type: 'quiz',
+          title: `${quiz.difficulty} Seviye Sınavı`,
+          description: `${quiz.total_questions} sorudan ${quiz.correct_answers} doğru`,
+          result: quiz.correct_answers > quiz.total_questions * 0.7 ? 'success' : 'failure',
+          timestamp: new Date(quiz.created_at)
+        }))
+      ].sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
+       .slice(0, 10);
       // Sınav sonuçlarını hesapla
       const totalCorrect = quizResults?.reduce((sum, result) => sum + (result.correct_answers || 0), 0) || 0;
       const totalQuestions = quizResults?.reduce((sum, result) => sum + (result.total_questions || 0), 0) || 0;
@@ -67,7 +93,7 @@ export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const { data: streak, error: streakError } = await supabase
         .from('user_progress')
         .select('created_at')
-        .eq('user_id', session.user.id)
+        .eq('user_id', user.id)
         .order('created_at', { ascending: false })
         .limit(1);
 
@@ -87,7 +113,8 @@ export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         successRate,
         quizCount,
         streak: streakCount,
-        lastActivity: streak?.[0]?.created_at ? new Date(streak[0].created_at) : undefined
+        lastActivity: activities?.[0]?.created_at ? new Date(activities[0].created_at) : undefined,
+        recentActivities: allActivities
       };
 
       dispatch({ type: 'FETCH_SUCCESS', payload: stats });
@@ -98,25 +125,21 @@ export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         payload: errorMessage
       });
     }
-  }, [dispatch]);
+  }, [user]);
+
+  // User değiştiğinde verileri otomatik yükle
+  useEffect(() => {
+    if (user) {
+      loadDashboardStats();
+    }
+  }, [user, loadDashboardStats]);
 
   const refreshStats = useCallback(async () => {
     await loadDashboardStats();
   }, [loadDashboardStats]);
 
-  // İlk yükleme
-  React.useEffect(() => {
-    loadDashboardStats();
-  }, [loadDashboardStats]);
-
   return (
-    <DashboardContext.Provider 
-      value={{ 
-        ...state,
-        loadDashboardStats,
-        refreshStats
-      }}
-    >
+    <DashboardContext.Provider value={{ ...state, loadDashboardStats, refreshStats }}>
       {children}
     </DashboardContext.Provider>
   );

@@ -6,6 +6,14 @@ export interface DashboardStats {
   quizCount: number;
   streak: number;
   lastActivity?: Date;
+  recentActivities: Array<{
+    id: string;
+    type: 'learning' | 'quiz';
+    title: string;
+    description: string;
+    result: 'success' | 'failure';
+    timestamp: Date;
+  }>;
 }
 
 export interface DashboardState {

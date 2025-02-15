@@ -242,6 +242,19 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
           </button>
         )}
       </div>
+      {/* Progress Bar */}
+      <div className="fixed left-0 right-0 bottom-0 h-1 bg-bs-navy/10">
+        <div 
+          className="h-full bg-gradient-to-r from-bs-primary to-bs-800 relative transition-all duration-500 ease-out"
+          style={{ width: `${((currentQuestionIndex + 1) / totalQuestions) * 100}%` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 
+                       animate-shimmer" style={{ backgroundSize: '200% 100%' }} />
+        </div>
+        <div className="absolute right-4 -top-6 text-xs font-medium bg-bs-navy text-white px-3 py-1 rounded-full shadow-lg">
+          {currentQuestionIndex + 1} / {totalQuestions} soru • %{Math.round(((currentQuestionIndex + 1) / totalQuestions) * 100)}
+        </div>
+      </div>
     </div>
   );
 };

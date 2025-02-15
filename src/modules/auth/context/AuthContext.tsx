@@ -126,15 +126,58 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const logout = useCallback(async () => {
+  const logout = useCallback(async (navigate?: (path: string) => void) => {
     try {
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
+      console.log('🟡 Çıkış yapılıyor...');
+      dispatch({ type: 'AUTH_START' });
+
+      // Önce local state'i temizle
       dispatch({ type: 'LOGOUT' });
+
+      // Local storage'ı temizle
+      localStorage.removeItem('sb-auth-token');
+      localStorage.removeItem('supabase.auth.token');
+
+      // Sonra Supabase oturumunu sonlandır
+      const { error } = await supabase.auth.signOut({
+        scope: 'local' // Sadece local oturumu sonlandır
+      });
+      
+      if (error) {
+        // Oturum zaten sonlanmışsa veya bulunamadıysa sessizce devam et
+        if (error.message.includes('session_not_found')) {
+          console.log('🟡 Oturum zaten sonlanmış veya bulunamadı');
+          return;
+        }
+        // Diğer hataları loglayalım ama kullanıcıya yansıtmayalım
+        console.error('🔴 Çıkış yaparken hata:', error);
+        return;
+        throw error;
+      }
+
+      console.log('🟢 Oturum başarıyla sonlandırıldı');
+      
+      // Anasayfaya yönlendir
+      if (navigate) {
+        navigate('/');
+      }
+
     } catch (error) {
       console.error('Logout error:', error);
-      dispatch({ type: 'AUTH_FAILURE', payload: 'Çıkış yapılırken bir hata oluştu.' });
-      throw error;
+      // Hata durumunda da kullanıcıyı çıkış yapmış say
+      dispatch({ type: 'LOGOUT' });
+      // Local storage'ı temizlemeyi dene
+      try {
+        localStorage.removeItem('sb-auth-token');
+        localStorage.removeItem('supabase.auth.token');
+      } catch (e) {
+        console.error('🔴 Local storage temizlenirken hata:', e);
+      }
+      
+      // Hata durumunda da anasayfaya yönlendir
+      if (navigate) {
+        navigate('/');
+      }
     }
   }, []);
 

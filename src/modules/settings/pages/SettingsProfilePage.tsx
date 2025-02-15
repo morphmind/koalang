@@ -4,8 +4,8 @@ import { LoadingSpinner } from '../../auth/components/LoadingSpinner';
 import { ErrorMessage } from '../../auth/components/ErrorMessage';
 import { User, Mail, Phone, Upload, X } from 'lucide-react';
 import { supabase } from '../../../lib/supabase';
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 export const SettingsProfilePage: React.FC = () => {
   const { 
@@ -18,11 +18,13 @@ export const SettingsProfilePage: React.FC = () => {
   const [uploadError, setUploadError] = React.useState<string | null>(null);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
+  // Telefon numarası için state
+  const [phoneValue, setPhoneValue] = React.useState(profile?.phone || '');
+
   const [formData, setFormData] = React.useState({
     firstName: profile?.first_name || '',
     lastName: profile?.last_name || '',
     email: profile?.email || '',
-    phone: profile?.phone || '',
     avatar: profile?.avatar_url || ''
   });
 
@@ -146,7 +148,6 @@ export const SettingsProfilePage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Only include fields that have changed
     const updates: any = {};
     
     if (formData.firstName !== initialData.firstName) {
@@ -156,19 +157,17 @@ export const SettingsProfilePage: React.FC = () => {
     if (formData.lastName !== initialData.lastName) {
       updates.last_name = formData.lastName;
     }
-    
-    if (formData.phone !== initialData.phone) {
-      updates.phone = formData.phone;
+
+    if (phoneValue !== profile?.phone) {
+      updates.phone = phoneValue;
     }
-    
+
     if (formData.avatar !== initialData.avatar) {
       updates.avatar_url = formData.avatar;
     }
 
-    // Only update if there are changes
     if (Object.keys(updates).length > 0) {
       await updateProfile(updates);
-      // Update initial data after successful save
       setInitialData(formData);
     }
   };
@@ -339,40 +338,30 @@ export const SettingsProfilePage: React.FC = () => {
           </label>
           <div className="relative">
             <PhoneInput
-              international
-              countryCallingCodeEditable={false}
-              defaultCountry={userCountry as any}
-              value={formData.phone}
-              onChange={(value) => setFormData(prev => ({ ...prev, phone: value || '' }))}
-              className="w-full"
-              labels={{
-                ZZ: 'Ülke seçin',
-                search: 'Ülke ara...',
-                US: 'Amerika Birleşik Devletleri',
-                GB: 'Birleşik Krallık',
-                DE: 'Almanya',
-                TR: 'Türkiye',
-                FR: 'Fransa',
-                IT: 'İtalya',
-                ES: 'İspanya',
-                NL: 'Hollanda'
+              country="tr"
+              value={phoneValue}
+              onChange={setPhoneValue}
+              enableSearch
+              searchPlaceholder="Ülke ara..."
+              inputClass="w-full px-4 py-3 rounded-lg border border-bs-100 focus:ring-2 
+                         focus:ring-bs-primary/10 focus:border-bs-primary transition-colors"
+              buttonClass="border-bs-100 rounded-lg bg-white hover:bg-bs-50 
+                          hover:border-bs-primary transition-all"
+              dropdownClass="rounded-xl border-bs-100 shadow-lg mt-2"
+              searchClass="rounded-lg border-bs-100 mb-2"
+              containerClass="phone-input-container"
+              specialLabel=""
+              localization={{
+                tr: 'Türkiye',
+                us: 'Amerika Birleşik Devletleri',
+                gb: 'Birleşik Krallık',
+                de: 'Almanya',
+                fr: 'Fransa',
+                it: 'İtalya',
+                es: 'İspanya',
+                nl: 'Hollanda'
               }}
-              style={{
-                '--PhoneInput-color--focus': 'var(--bs-primary)',
-                '--PhoneInputInternationalIconPhone-opacity': '1',
-                '--PhoneInputCountrySelect-marginRight': '0.75rem',
-                '--PhoneInputCountrySelectArrow-color': 'var(--bs-navygri)',
-                '--PhoneInputCountrySelectArrow-opacity': '1'
-              } as any}
-              inputComponent={React.forwardRef((props: any, ref) => (
-                <input
-                  {...props}
-                  ref={ref}
-                  className="w-full pl-[4.5rem] pr-4 py-3 rounded-lg border border-bs-100 focus:ring-2 
-                           focus:ring-bs-primary/10 focus:border-bs-primary transition-colors"
-                  placeholder="Telefon numaranızı girin"
-                />
-              ))}
+              preferredCountries={['tr', 'us', 'gb', 'de']}
             />
           </div>
           <p className="mt-2 text-xs text-bs-navygri">

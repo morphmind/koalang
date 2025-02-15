@@ -10,8 +10,10 @@ import { useWords } from '../../words/context/WordContext';
 import { useProgress } from '../hooks/useProgress';
 import { Word } from '../../../data/oxford3000.types';
 import { words } from '../../../data/oxford3000';
+import { useAuth } from '../../auth';
 
 export const DashboardPage: React.FC = () => {
+  const { user } = useAuth();
   const { stats, isLoading, error } = useDashboard();
   const { 
     getWeeklyProgress,
@@ -33,6 +35,8 @@ export const DashboardPage: React.FC = () => {
 
   // İlerleme verilerini yükle
   React.useEffect(() => {
+    if (!user) return;
+
     const loadProgressData = async () => {
       try {
         const [weeklyData, levelData, activities] = await Promise.all([
@@ -56,10 +60,12 @@ export const DashboardPage: React.FC = () => {
     };
 
     loadProgressData();
-  }, [getWeeklyProgress, getLevelDistribution, getRecentActivities, stats.learnedWords]);
+  }, [user, getWeeklyProgress, getLevelDistribution, getRecentActivities]);
 
   // Önerilen kelimeleri yükle
   React.useEffect(() => {
+    if (!user) return;
+
     const loadSuggestedWords = async () => {
       try {
         const suggested = await getSuggestedWords(6);
@@ -70,7 +76,7 @@ export const DashboardPage: React.FC = () => {
     };
 
     loadSuggestedWords();
-  }, [stats.learnedWords, getSuggestedWords]);
+  }, [user, stats.learnedWords, getSuggestedWords]);
 
   const handleLearnWord = async (word: Word) => {
     try {
@@ -88,6 +94,14 @@ export const DashboardPage: React.FC = () => {
     utterance.lang = 'en-US';
     window.speechSynthesis.speak(utterance);
   };
+
+  if (!user) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <ErrorMessage message="Lütfen giriş yapın" />
+      </div>
+    );
+  }
 
   if (isLoading || loadingProgress) {
     return (
